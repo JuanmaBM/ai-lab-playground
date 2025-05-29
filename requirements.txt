@@ -1,0 +1,7 @@
+ipykernel
+sqlalchemy
+torch
+peft
+trl
+kubernetes
+fastmcp
