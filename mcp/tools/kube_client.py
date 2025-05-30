@@ -1,4 +1,3 @@
-from kubernetes import client, config
 import subprocess
 
 def run_command(cmd) -> dict: 
@@ -7,6 +6,3 @@ def run_command(cmd) -> dict:
         return {"success": True, "result": result.stdout}
     except subprocess.CalledProcessError as e:
         return {"success": False, "result": str(e)}
-
-if __name__ == "__main__":
-    print(run_command("kubectl get pods -A"))
