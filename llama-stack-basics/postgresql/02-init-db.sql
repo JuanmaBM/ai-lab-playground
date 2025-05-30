@@ -1,0 +1,1 @@
+CREATE DATABASE llamastack OWNER postgres;

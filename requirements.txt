@@ -5,3 +5,7 @@ peft
 trl
 kubernetes
 fastmcp
+llama-stack-client
+fastapi
+uvicorn
+fastmcp
