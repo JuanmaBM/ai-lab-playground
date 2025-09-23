@@ -1,0 +1,30 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ollama-model-pull
+spec:
+  template:
+    spec:
+      containers:
+        - name: pull-mistral
+          image: curlimages/curl:7.87.0
+          command:
+            - /bin/sh
+            - -c
+            - |
+              echo "Waiting for Ollama to be ready..."
+              until nc -z ollama 11434; do
+                echo "Ollama not ready, sleeping 5s..."
+                sleep 5
+              done
+
+              echo "Ollama is up, sending model pull request..."
+              until curl -s -X POST http://ollama:11434/api/pull \
+                   -d '{"model": "mistral:7b-instruct"}'; do
+                echo "Pull failed, retrying in 5s..."
+                sleep 5
+              done
+
+              echo "Model pull completed successfully!"
+      restartPolicy: OnFailure

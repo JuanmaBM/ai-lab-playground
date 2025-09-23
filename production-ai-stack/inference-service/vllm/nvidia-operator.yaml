@@ -1,0 +1,19 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nvidia-gpu-operator
+  namespace: gpu-operator
+spec:
+  chart:
+    spec:
+      chart: gpu-operator
+      sourceRef:
+        kind: HelmRepository
+        name: nvidia
+        namespace: gpu-operator
+      version: "1.13.4"
+  values:
+    driver:
+      enabled: true
+    toolkit:
+      enabled: true
