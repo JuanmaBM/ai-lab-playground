@@ -6,3 +6,4 @@ resources:
 - service.yaml
 - pvc.yaml
 - pull-model-job.yaml
+- ingress.yaml
