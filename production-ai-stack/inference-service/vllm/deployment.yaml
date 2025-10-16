@@ -22,11 +22,6 @@ spec:
           "vllm serve mistralai/Mistral-7B-Instruct-v0.3 --trust-remote-code --enable-chunked-prefill --max_num_batched_tokens 1024"
         ]
         env:
-        - name: HUGGING_FACE_HUB_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: hf-token
-              key: HUGGING_FACE_HUB_TOKEN
         - name: VLLM_CACHE_DIR
           value: /cache
         ports:

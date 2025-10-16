@@ -2,8 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: vllm-stage-cpu-ingress
-  namespace: llama-stack
+  name: vllm-stage-ingress
 spec:
   ingressClassName: nginx
   rules:
