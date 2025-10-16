@@ -13,6 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: vllm-stage-cpu-svc
+                name: vllm-service
                 port:
                   number: 80
