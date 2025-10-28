@@ -1,0 +1,19 @@
+apiVersion: authorino.kuadrant.io/v1beta3
+kind: AuthConfig
+metadata:
+  name: inference-service-api-token-version
+spec:
+  authentication:
+    inference-service:
+      apiKey:
+        allNamespaces: false
+        selector:
+          matchLabels:
+            group: inference-service
+      credentials:
+        authorizationHeader:
+          prefix: APIKEY
+      metrics: false
+      priority: 0
+  hosts:
+    - inference-service.k8s.com

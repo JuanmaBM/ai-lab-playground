@@ -1,0 +1,28 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: envoy
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: inference-service.k8s.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: envoy
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+  - host: inference-service-api-token-version.k8s.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: envoy
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+

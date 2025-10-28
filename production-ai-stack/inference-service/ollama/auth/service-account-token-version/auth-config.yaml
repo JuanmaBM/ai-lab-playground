@@ -1,0 +1,19 @@
+apiVersion: authorino.kuadrant.io/v1beta3
+kind: AuthConfig
+metadata:
+  name: envoy
+spec:
+  authentication:
+    "inference-service":
+      kubernetesTokenReview:
+        audiences:
+        - inference-service
+  authorization:
+    "validate-service-account":
+      patternMatching:
+        patterns:
+          - selector: auth.identity.user.username
+            operator: eq
+            value: system:serviceaccount:inference-service:inference-service
+  hosts:
+    - inference-service.k8s.com
