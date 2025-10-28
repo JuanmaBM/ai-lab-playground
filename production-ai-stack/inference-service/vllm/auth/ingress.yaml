@@ -15,3 +15,14 @@ spec:
               number: 8000
         path: /
         pathType: Prefix
+  - host: inference-service-api-token-version.k8s.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: envoy
+            port:
+              number: 8000
+        path: /
+        pathType: Prefix
+
